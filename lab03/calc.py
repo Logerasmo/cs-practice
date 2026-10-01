@@ -4,7 +4,11 @@ def minus(a,b):
     print(a-b)
 def umn(a,b):
     print(a*b)
-
+def delen(a,b):
+    if b == 0:
+        print("На ноль делить нельзя")
+    else:
+        print(a/b)
 a = float(input("Введите первое число: "))
 b = float(input("Введите второе число: "))
 z = input("Введите операцию(+): ")
@@ -14,3 +18,5 @@ elif z == "-":
     minus(a,b)
 elif z == "*":
     umn(a,b)
+elif z == "/":
+    delen(a,b)
