@@ -10,3 +10,7 @@ print(len(records))
 print(len(records) - len(lines))
 avg = average_by_city(records)
 print(avg[warmest_city(avg)])
+
+
+
+ь
