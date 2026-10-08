@@ -7,6 +7,6 @@ count = {}
 
 records = read_valid(lines)
 print(len(records))
-print(len(records) - len(lines))
+print(abs(len(records) - len(lines)))
 avg = average_by_city(records)
 print(avg[warmest_city(avg)])

@@ -49,4 +49,3 @@ def warmest_city(records):
         elif avg_dict[k] == maxx:
             lst.append(k)
     return sorted(lst)[0]
-print(read_valid("Азов24.5;2026-07-01\nАзов;25.5;2026-07-02\nТаганрог;30;2026-07-01\njkvfjk".split("\n")))
