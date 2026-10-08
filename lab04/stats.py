@@ -10,7 +10,7 @@ def parse_record(line = str):
         except ValueError:
             raise ValueError("Температура должна быть числом")
     a["city"] = l[0]
-    a["temperature"] = l[1]
+    a["temperature"] = float(l[1])
     a["date"] = l[2]
     return a
 
