@@ -32,7 +32,7 @@ def average_by_city(records):
             avg[city] = avg[city] + r["temperature"]
             count[city] = count[city] + 1
         else:
-            avg[city] = r[temperature]
+            avg[city] = r["temperature"]
             count[city] = 1
     for k in avg:
         avg[k] = avg[k] / count[k]
