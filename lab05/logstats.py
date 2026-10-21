@@ -8,7 +8,8 @@ def parse_event(line):
 def count_levels(lines):
     s = {}
     for line in lines:
-        level = ""
+        if line == "" or len(line) == line.count(" "):
+            continue
         try:
             l = parse_event(line)
             level = l["level"]
