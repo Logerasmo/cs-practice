@@ -24,7 +24,6 @@ def deepest_path(paths):
             candidates.append(p)
     return min(candidates)
 
-svrjksrbjkb
 def human_size(n_bytes):
     units = ["Б", "КБ", "МБ", "ГБ", "ТБ"]
     size = n_bytes
