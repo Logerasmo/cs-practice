@@ -2,7 +2,9 @@ def count_by_extension(paths):
     result = {}
     for path in paths:
         name = path.split("/")[-1]
-        if "." in name:
+        if name.startswith(".") and name.count(".") == 1:
+            ext = ""
+        elif "." in name:
             ext = name.rsplit(".", 1)[-1].lower()
         else:
             ext = ""
@@ -23,6 +25,7 @@ def deepest_path(paths):
         elif depth == max_depth:
             candidates.append(p)
     return min(candidates)
+
 
 def human_size(n_bytes):
     units = ["Б", "КБ", "МБ", "ГБ", "ТБ"]
