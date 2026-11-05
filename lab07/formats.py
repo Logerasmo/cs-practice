@@ -1,14 +1,21 @@
 def toType(text):
     try:
-        text = float(text)
+        return float(text)
     except:
-        try:
-            text = int(text)
-        except:
-            if text.lower() == "true" or text.lower() == "yes":
-                return True
-            elif text.lower() == "false" or text.lower() == "no":
-                return False
+        pass
+    try:
+        return int(text)
+    except:
+        pass
+    try:
+        return float(text.replace(",", "."))
+    except:
+        pass
+    low = text.lower()
+    if low in ("true", "yes"):
+        return True
+    if low in ("false", "no"):
+        return False
     return text
 def parseLineYaml(text):
     return [toType(i.strip()) for i in text.split(":")]
