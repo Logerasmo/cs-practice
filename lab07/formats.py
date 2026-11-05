@@ -13,28 +13,27 @@ def toType(text):
 def parseLineYaml(text):
     return [toType(i.strip()) for i in text.split(":")]
 def csv_to_records(text):
-    text = text.splitlines()
-    key = text[0].split(",")[0]
-    value = text[0].split(",")[1]
-    l = []
-    for line in text[1:]:
-        d = dict()
-        d[key] = line.split(",")[0]
-        d[value] = line.split(",")[1]
-        l.append(d)
-    return l
+    lines = text.splitlines()
+    headers = [h.strip() for h in lines[0].split(",")]
+    result = []
+    for line in lines[1:]:
+        if not line.strip():
+            continue
+        values = [v.strip() for v in line.split(",")]
+        result.append(dict(zip(headers, values)))
+    return result
 def parse_settings(lines):
     d = dict()
     isCol = False
     mCols = []
     colName = None
     for line in lines:
-        line = line.strip()
-        if line.startswith("#"):
+        line = line.split("#", 1)[0].strip()
+        if not line:
             continue
         if isCol:
             if line.startswith("-"):
-                mCols.append(line[1:].strip())
+                mCols.append(line[2:])
             else:
                 d[colName] = mCols
                 mCols = []
