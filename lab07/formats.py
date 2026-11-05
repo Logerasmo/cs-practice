@@ -14,6 +14,8 @@ def parseLineYaml(text):
     return [toType(i.strip()) for i in text.split(":")]
 def csv_to_records(text):
     lines = text.splitlines()
+    if not lines:
+        return []
     headers = [h.strip() for h in lines[0].split(",")]
     result = []
     for line in lines[1:]:
